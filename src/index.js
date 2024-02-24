@@ -6,6 +6,15 @@ function displayTemperature(response) {
   temperatureElement.innerHTML = temperature;
    let humidityElement = document.querySelector("#humidity");
    let windSpeedElement = document.querySelector("#wind");
+   let descriptionElement = document.querySelector("#description");
+   let iconElement = document.querySelector("#icon");
+
+   
+
+   descriptionElement.innerHTML = response.data.condition.description;
+   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
+   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`; 
 }
 
 function search(event) {
